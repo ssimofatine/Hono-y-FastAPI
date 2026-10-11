@@ -1,0 +1,7 @@
+1. La URL que aparece en el navegador es `http://localhost:3000/api/buscar?texto=samsung`. La parte que corresponde a la ruta es `/api/buscar`, y el parámetro de consulta es `?texto=samsung`.
+
+2. En Hono, al buscar `/api/productos/abc`, la función `Number('abc')` devuelve `NaN`, por lo que el producto no se encuentra y devuelve un error 404 con el mensaje "Producto no encontrado". En FastAPI, devuelve automáticamente un error de validación (422 Unprocessable Entity) porque hemos definido que el parámetro `id` debe ser de tipo `int`, y "abc" no se puede convertir a número.
+
+3. Un formulario HTML con `method="get"` siempre añade los datos de sus campos a la URL en forma de parámetros de consulta (`/producto?id=3`). No tiene la capacidad de construir rutas dinámicas directamente en el formato `/api/productos/3`, por eso es necesario hacer una ruta intermedia que reciba el parámetro de consulta y haga una redirección.
+
+4. Se parecen en que ambos definen la ruta y el método HTTP (ej. `app.get(...)`) y ambos devuelven respuestas en formato JSON automáticamente. Cambian en cómo manejan los parámetros y la respuesta: Hono utiliza un objeto de contexto `c` (ej. `c.req.param`, `c.json`), mientras que FastAPI inyecta los parámetros directamente en la función y permite devolver diccionarios nativos de Python.

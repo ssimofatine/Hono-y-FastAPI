@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore</title>
+</head>
+<body>
+
+    <h1>TechStore</h1>
+    <p>Bienvenido a nuestra tienda de informática.</p>
+    
+    <a href="/api/productos">Ver todos los productos</a>
+
+    <hr>
+
+    <h2>Buscar por nombre</h2>
+    <form action="/api/buscar" method="get">
+        <label for="texto">Texto:</label>
+        <input type="text" id="texto" name="texto">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <hr>
+
+    <h2>Buscar por id</h2>
+    <form action="/producto" method="get">
+        <label for="id">ID:</label>
+        <input type="number" id="id" name="id">
+        <button type="submit">Buscar</button>
+    </form>
+    
+</body>
+</html>
